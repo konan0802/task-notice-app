@@ -16,6 +16,7 @@ $nowTime = (String)($nowHour+$nowMinute);
 var_dump($nowTime);
 
 //API実行、HTTPリクエスト
+var_dump("access to GAS");
 try{
   $url = "https://script.google.com/macros/s/AKfycbwgabm961niluzXJkC-WEC05f__SxpqK_q0IeVyNI_yhnvLh6s/exec?time=".$nowTime."";
   $json = file_get_contents($url);
