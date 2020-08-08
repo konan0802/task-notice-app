@@ -16,11 +16,16 @@ $nowTime = (String)($nowHour+$nowMinute);
 var_dump($nowTime);
 
 //API実行、HTTPリクエスト
-$url = "https://script.google.com/macros/s/AKfycbwgabm961niluzXJkC-WEC05f__SxpqK_q0IeVyNI_yhnvLh6s/exec?time=".$nowTime."";
-$json = file_get_contents($url);
-$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-$arr = json_decode($json,true);
-var_dump($arr);
+try{
+  $url = "https://script.google.com/macros/s/AKfycbwgabm961niluzXJkC-WEC05f__SxpqK_q0IeVyNI_yhnvLh6s/exec?time=".$nowTime."";
+  $json = file_get_contents($url);
+  $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+  $arr = json_decode($json,true);
+  var_dump($arr);
+
+}catch ( Exception $ex ) {
+  var_dump("No access to GAS");
+}
 
 echo <<<EOM
 <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
