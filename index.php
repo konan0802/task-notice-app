@@ -17,13 +17,9 @@ var_dump($nowTime);
 
 //API実行、HTTPリクエスト
 try{
-  var_dump("access to GAS");
   $url = "https://script.google.com/macros/s/AKfycbwgabm961niluzXJkC-WEC05f__SxpqK_q0IeVyNI_yhnvLh6s/exec?time=".$nowTime."";
-  var_dump("make url");
   $json = file_get_contents($url);
-  var_dump("accessed to GAS");
   $json = mb_convert_encoding($json, 'UTF8', 'auto');
-  var_dump("jsonの変換");
   $arr = json_decode($json,true);
   var_dump($arr);
 
