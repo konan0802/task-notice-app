@@ -13,6 +13,7 @@ const checkTime = function() {
     }
     var nowTtoH = String(nowHours + nowMtoH);
     console.log(nowHours+":"+nowMinutes);
+    console.log(nowTtoH);
 
     // XMLHttpRequestオブジェクトの作成
     var request = new XMLHttpRequest();
@@ -35,7 +36,7 @@ const checkTime = function() {
         });
     }
 
-    if(nowMinutes == 27 || nowMinutes == 50){
+    if(nowMinutes == 20 || nowMinutes == 50){
         // リクエストをURLに送信
         request.send();
     }
