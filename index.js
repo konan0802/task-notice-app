@@ -43,8 +43,9 @@ const checkTime = function() {
             previousMinutes = datetime;
         }
     }
+    //7時以降かつ23時代以前
     //20分と50分の際にリクエスト送信
-    if(nowMinutes == 20 || nowMinutes == 50){
+    if((nowHours >= 7 && nowHours <= 23) && (nowMinutes == 20 || nowMinutes == 50)){
         // リクエストをURLに送信
         request.send();
     }
